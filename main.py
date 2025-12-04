@@ -28,3 +28,31 @@ while counter_domanda_corrente < lista_domande_length:
         print("Non hai indovinato.")
         esito = False
 
+ # --- Livello 3: Gestione della Memoria ---
+    if len(risultato_finale) > counter_domanda_corrente:
+        # Sovrascrivi la risposta già data
+        risultato_finale[counter_domanda_corrente] = esito
+    else:
+        # Aggiungi nuova risposta
+        risultato_finale.append(esito)
+
+    # --- Livello 2 + Bonus: Navigazione ---
+    scelta = input("Vuoi andare (P)recedente, (S)uccessiva o saltare a un numero? ").strip()
+
+    if scelta.upper() == "P":
+        if counter_domanda_corrente > 0:
+            counter_domanda_corrente -= 1
+        else:
+            print("Sei già alla prima domanda, non puoi tornare indietro.")
+    elif scelta.isdigit():
+        numero = int(scelta)
+        if 1 <= numero <= lista_domande_length:
+            counter_domanda_corrente = numero - 1
+        else:
+            print("Numero non valido, rimaniamo sulla stessa domanda.")
+    else:
+        counter_domanda_corrente += 1
+
+print("\nQuiz terminato!")
+print("Risultati finali:", risultato_finale)
+
