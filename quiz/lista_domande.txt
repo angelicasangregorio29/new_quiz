@@ -1,5 +1,3 @@
-# quiz_domande.py
-
 lista_domande = [
     {
         "testo": "Qual è il linguaggio usato principalmente per lo sviluppo web lato client?",
@@ -27,16 +25,3 @@ lista_domande = [
         "corretta": "Roma"
     }
 ]
-
-lista_domande_length = len(lista_domande)
-
-# Stampa tutte le domande con opzioni e risposta corretta
-print("Numero totale di domande:", lista_domande_length)
-print()
-
-for i, domanda in enumerate(lista_domande, start=1):
-    print(f"Domanda {i}: {domanda['testo']}")
-    for j, opzione in enumerate(domanda["opzioni"], start=1):
-        print(f"   {j}. {opzione}")
-    print(f"Risposta corretta: {domanda['corretta']}")
-    print("-" * 40)
